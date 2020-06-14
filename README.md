@@ -2,6 +2,11 @@
 Generic driver for AMS AS5047P magnetic encoder written in C. Because the driver was meant to be portable (platform independent), some details related to SPI communication and CS (chip-select) signals must be implemented by the user itself. This implementation takes places in file `as5047_hal.c/cpp` - 4 simple methods must be implemented - for more details check this file out. SPI and GPIO initialization is assumed to be done outside of the driver.
 If you want to use AS5047P with **Arduino** or **Nucleo** - you can jump to Examples straight away, complete implementation is already done for them.
 
+<p align="center">
+  <img src="Images/AS5047P_Front.jpeg" width="350" alt="AS5047P MotorEncoder board frontside" title="AS5047P MotorEncoder board frontside">
+  <img src="Images/AS5047P_Back.jpeg" width="350" alt="AS5047P MotorEncoder board backside" title="AS5047P MotorEncoder board backside">
+</p>
+
 ## Repository Structure
 * **Library**: AS5047P generic driver library
 * **Examples**: Driver implementations and examples
