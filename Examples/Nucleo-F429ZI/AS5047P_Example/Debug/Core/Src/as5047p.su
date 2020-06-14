@@ -1,0 +1,14 @@
+as5047p.c:412:16:AS5047P_ReadWriteRaw	16	static
+as5047p.c:471:16:AS5047P_ReadRegister	32	static
+as5047p.c:576:17:AS5047P_WriteRegister	40	static
+as5047p.c:702:17:AS5047P_Init	24	static
+as5047p.c:772:17:AS5047P_SetFactorySettings	24	static
+as5047p.c:818:7:AS5047P_ErrorPending	0	static
+as5047p.c:839:15:AS5047P_GetError	0	static
+as5047p.c:861:17:AS5047P_ErrorAck	24	static
+as5047p.c:920:17:AS5047P_SetFieldInRegister	192	static
+as5047p.c:995:16:AS5047P_ReadPosition	32	static
+as5047p.c:1123:17:AS5047P_SetZeroPosition	40	static
+as5047p.c:1243:17:AS5047P_SetABIResolution	24	static
+as5047p.c:1366:17:AS5047P_BurnOTP	64	static
+as5047p.c:1583:10:AS5047P_GetID	0	static

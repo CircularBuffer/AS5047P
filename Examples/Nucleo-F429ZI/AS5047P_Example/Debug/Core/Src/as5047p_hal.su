@@ -1,0 +1,4 @@
+as5047p_hal.c:66:6:AS5047P_HAL_Delay_ms	0	static
+as5047p_hal.c:206:6:AS5047P_HAL_Debug	0	static
+as5047p_hal.c:304:9:AS5047P_HAL_Init	8	static
+as5047p_hal.c:333:9:AS5047P_HAL_SPI_Transaction	48	static
