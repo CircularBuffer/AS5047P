@@ -159,6 +159,8 @@ static void AS5047P_HAL_GPIO_Write(uint8_t state)
 static uint8_t AS5047P_SelectSPIAndGPIO(uint16_t id)
 {
   //--- Chip select and SPI selection
+  //--- Each case is for one encoder. If you want to use for example three
+  //--- encoder, you have to prepare here 3 cases (0,1,2).
   switch (id)
    {
      case 0:
