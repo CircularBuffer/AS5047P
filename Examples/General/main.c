@@ -9,7 +9,6 @@
 *
 *************************************************************************************/
 
-#include <stdio.h> // printf
 #include "as5047p.h"
 
   AS5047P_Instance encInstanceA = {0};
@@ -23,11 +22,11 @@ int main(void)
    //--- Initialize SPI
    SPI_Init();
    
-   //--- Initialize encoder and bind id number to instance.
+   //--- Initialize encoder and bind id number to the instance.
    AS5047P_Init(&encInstanceA, 0); // Bind encoder with id = 0
 
    //--- Set registers SETTINGS1, SETTINGS2, ZPOSL, ZPOSM to their factory defaults
-   //--- (in this way ignoring OTP memory loaded values). If
+   //--- (in this way ignoring OTP memory loaded values).
    AS5047P_SetFactorySettings(&encInstanceA);
 
    //--- Set current encoder position as new zero (AS5047P_ZPOSL, AS5047P_ZPOSM)
