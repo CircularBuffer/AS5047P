@@ -36,7 +36,17 @@ To make the library working with your platform you need to:
 *  `AS5047P_HAL_GPIO_Write`: used for setting/clearing CS pins
 *  `AS5047P_SelectSPIAndGPIO`: used for selecting SPI periphery and CS signal (see examples for Arduino/Nucleo)
 *  `AS5047P_HAL_Debug`: used for debug purposes. This is an option.
-
+5. Create encoder's instance, initialize, set zero position (calibrate) and use :
+```C
+// Create encoder's instance:
+AS5047P_Instance encInstanceA;
+// Initialize:
+AS5047P_Init(&encInstanceA, 0);
+// Set zero position:
+AS5047P_SetZeroPosition(&encInstanceA);
+// Use:
+encPositionA = AS5047P_ReadPosition(&encInstanceA, AS5047P_OPT_ENABLED);
+```
 ## Features
 *  SPI communication monitoring (parity bit check)
 *  SPI's slave reachibility test (by requesting non-zero value register)
@@ -45,7 +55,45 @@ To make the library working with your platform you need to:
 *  Any register read/write possible with `AS5047P_ReadRegister()` and `AS5047P_WriteRegister methods`.
 *  OTP burn possible
 
-## Example
+## Simple example
+```C
+#include "as5047p.h"
+
+  AS5047P_Instance encInstanceA = {0};
+  AS5047P_Result encPositionA;
+
+int main(void)
+{
+   //--- Initialize GPIO
+   //--- Initialize SPI
+   
+   //--- Initialize encoder and bind id number to the instance.
+   AS5047P_Init(&encInstanceA, 0); // Bind encoder with id = 0
+
+   //--- Set current encoder position as new zero (AS5047P_ZPOSL, AS5047P_ZPOSM)
+   AS5047P_SetZeroPosition(&encInstanceA);
+
+   //--- Any of the above returned error.
+   if ( AS5047P_ErrorPending(&encInstanceA) )
+   {
+       while(1)
+       {}// Sorry Joe, no luck today.
+   }
+
+   while (1)
+   {
+     encPositionA = AS5047P_ReadPosition(&encInstanceA, AS5047P_OPT_ENABLED);
+     if( AS5047P_ErrorPending(&encInstanceA) )
+     {
+     	//--- Acknowledge error 
+	AS5047P_ErrorAck(&encInstanceA);
+     }     
+     //--- Do something
+   }
+
+}
+```
+## All features example
 
 ```C
 #include "as5047p.h"
@@ -56,10 +104,7 @@ To make the library working with your platform you need to:
 int main(void)
 {
    //--- Initialize GPIO
-   GPIO_Init();
-   
    //--- Initialize SPI
-   SPI_Init();
    
    //--- Initialize encoder and bind id number to the instance.
    AS5047P_Init(&encInstanceA, 0); // Bind encoder with id = 0
@@ -127,7 +172,6 @@ int main(void)
 
      //--- Delay 100ms (for printf)
      delay_ms(100);
-
    }
 
 }
