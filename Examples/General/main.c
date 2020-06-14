@@ -17,10 +17,7 @@
 int main(void)
 {
    //--- Initialize GPIO
-   GPIO_Init();
-   
    //--- Initialize SPI
-   SPI_Init();
    
    //--- Initialize encoder and bind id number to the instance.
    AS5047P_Init(&encInstanceA, 0); // Bind encoder with id = 0
@@ -88,8 +85,6 @@ int main(void)
 
      //--- Delay 100ms (for printf)
      delay_ms(100);
-
    }
 
 }
-
