@@ -8,11 +8,13 @@ If you want to use AS5047P with **Arduino** or **Nucleo** - you can jump to Exam
 </p>
 
 ## Repository Structure
-* **Library**: AS5047P generic driver library
+
 * **Examples**: Driver implementations and examples
   * **General**: General example with most functions shown
   * **Arduino**: Driver implementation with an example for Arduino (tested with Teensy 3.2)
   * **Nucleo-F429ZI**: Driver implementation with an example for Nucleo-F429ZI
+* **Images**: Images
+* **Library**: AS5047P generic driver library  
   
 ## How to run library on Arduino
 1. Import [example](https://github.com/CircularBuffer/AS5047P/tree/master/Examples/Arduino) to your project
